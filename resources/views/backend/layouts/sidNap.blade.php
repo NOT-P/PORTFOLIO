@@ -7,7 +7,7 @@
                  Dashboard
              </a>
              <div class="sb-sidenav-menu-heading">Pages</div>
-             <a class="nav-link collapsed show" href="" data-bs-toggle="collapse"
+             <a class="nav-link collapsed show {{ request()->is('home*') ? 'show active' : '' }} " href="" data-bs-toggle="collapse"
                  data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                  Home Page
@@ -16,8 +16,8 @@
              <div class="collapse " id="collapseLayouts" aria-labelledby="headingOne"
                  data-bs-parent="#sidenavAccordion">
                  <nav class="sb-sidenav-menu-nested nav">
-                     <a class="nav-link " href="hero-property.html">Hero Property</a>
-                     <a class="nav-link " href="about-section.html">About section</a>
+                     <a class="nav-link {{ request()->is('home/heroProperty') ? 'active' : ''  }} " href="{{ route('heroProperty.index') }}">Hero Property</a>
+                     <a class="nav-link {{ request()->is('home/about') ? 'active' : ''  }} " href="{{ route('about.index') }}">About section</a>
                      <a class="nav-link " href="social-link.html">Social Link</a>
                  </nav>
              </div>

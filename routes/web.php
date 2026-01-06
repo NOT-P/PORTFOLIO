@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\Backend\DashboardController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\AboutController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\HeroPropertyController;
 
 // Route::get('/', function () {
 //     return view('frontend.pages.index');
@@ -23,8 +25,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     #logout page 
-
     Route::get('/logout',[DashboardController::class, 'logout'])->name('logout');
+
+    #HeroProperty page
+    Route::get('/home/heroProperty',[HeroPropertyController::class, 'index'])->name('heroProperty.index');
+    Route::post('/home/heroProperty',[HeroPropertyController::class, 'store'])->name('heroProperty.store');
+    #About page
+    Route::get('/home/about',[AboutController::class, 'index'])->name('about.index');
+    Route::post('/home/about',[AboutController::class, 'store'])->name('about.store');
 });
 
 require __DIR__.'/auth.php';
