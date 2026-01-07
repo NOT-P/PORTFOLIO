@@ -51,7 +51,7 @@
 
                                 <div class="mb-3">
                                     <!-- <label class="form-label">Image</label> -->
-                                    <img id="showImage" src="{{ $heroProperty->img ?? asset('backend/images/placeholder-img.jpg') }}"
+                                    <img id="showImage" src="{{ asset('backend/images/placeholder-img.jpg') }}"
                                         alt="image" width="100"
                                         style="border:1px solid #ccc;padding:5px; border-radius:5px;">
                                 </div>
