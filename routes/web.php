@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\AboutController;
+use App\Http\Controllers\Backend\SocialController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\HeroPropertyController;
 
@@ -33,6 +34,22 @@ Route::middleware('auth')->group(function () {
     #About page
     Route::get('/home/about',[AboutController::class, 'index'])->name('about.index');
     Route::post('/home/about',[AboutController::class, 'store'])->name('about.store');
+    #social page
+    Route::get('/home/socials',[SocialController::class, 'index'])->name('socials.index');
+    Route::post('/home/socials',[SocialController::class, 'store'])->name('socials.store');
+
+
+    Route::get('/home/create',[SocialController::class,'create'])->name('social.create');
+
+    Route::get('/home/edit/{id}',[SocialController::class,'edit'])->name('social.edit');
+    Route::put('/home/update/{id}',[SocialController::class,'update'])->name('social.update');
+    Route::delete('/home/destroy/{id}',[SocialController::class,'destroy'])->name('social.destroy');
+    
+
+    //Route::delete('/home/destroy/{social}',[SocialController::class,'destroy'])->name('social.destroy');
+
+    //Route::resource('/home/social',[SocialController::class]);
+
 });
 
 require __DIR__.'/auth.php';

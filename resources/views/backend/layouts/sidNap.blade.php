@@ -18,7 +18,7 @@
                  <nav class="sb-sidenav-menu-nested nav">
                      <a class="nav-link {{ request()->is('home/heroProperty') ? 'active' : ''  }} " href="{{ route('heroProperty.index') }}">Hero Property</a>
                      <a class="nav-link {{ request()->is('home/about') ? 'active' : ''  }} " href="{{ route('about.index') }}">About section</a>
-                     <a class="nav-link " href="social-link.html">Social Link</a>
+                     <a class="nav-link {{ request()->is('home/socials') ? 'active' : '' }} " href="{{ route('socials.index') }}">Social Link</a>
                  </nav>
              </div>
 
