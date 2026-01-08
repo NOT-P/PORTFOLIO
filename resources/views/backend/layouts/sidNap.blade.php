@@ -7,13 +7,13 @@
                  Dashboard
              </a>
              <div class="sb-sidenav-menu-heading">Pages</div>
-             <a class="nav-link collapsed show {{ request()->is('home*') ? 'show active' : '' }} " href="" data-bs-toggle="collapse"
+             <a class="nav-link collapsed show {{ request()->is('home*') ? 'active' : '' }} " href="" data-bs-toggle="collapse"
                  data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                  Home Page
                  <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
              </a>
-             <div class="collapse " id="collapseLayouts" aria-labelledby="headingOne"
+             <div class="collapse {{ request()->is('home*') ? 'show ' : '' }} " id="collapseLayouts" aria-labelledby="headingOne"
                  data-bs-parent="#sidenavAccordion">
                  <nav class="sb-sidenav-menu-nested nav">
                      <a class="nav-link {{ request()->is('home/heroProperty') ? 'active' : ''  }} " href="{{ route('heroProperty.index') }}">Hero Property</a>
@@ -22,22 +22,21 @@
                  </nav>
              </div>
 
-             <a class="nav-link collapsed " href="/resume" data-bs-toggle="collapse" data-bs-target="#resumePage"
+             <a class="nav-link collapsed {{ request()->is('resume*') ? 'active' : '' }} " href="" data-bs-toggle="collapse" data-bs-target="#resumePage"
                  aria-expanded="false" aria-controls="resumePage">
                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                  Resume Page
                  <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
              </a>
-             <div class="collapse " id="resumePage" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+             <div class="collapse {{ request()->is('resume*') ? 'show' : '' }} " id="resumePage" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                  <nav class="sb-sidenav-menu-nested nav">
-                     <a class="nav-link " href="resume.html">Resume</a>
-                     <a class="nav-link " href="experience.html">Experience</a>
-                     <a class="nav-link " href="education.html">Education</a>
-                     <a class="nav-link " href="professional-skills.html">Professional Skills</a>
-                     <a class="nav-link " href="languages.html">Languages</a>
+                     <a class="nav-link  {{ request()->is('resume/download') ? 'active' : ''  }} " href="{{ route('resumes.index') }}">Resume</a>
+                     <a class="nav-link  {{ request()->is('resume/heroProperty') ? 'active' : ''  }} " href="experience.html">Experience</a>
+                     <a class="nav-link  {{ request()->is('resume/heroProperty') ? 'active' : ''  }} " href="education.html">Education</a>
+                     <a class="nav-link  {{ request()->is('resume/heroProperty') ? 'active' : ''  }} " href="professional-skills.html">Professional Skills</a>
+                     <a class="nav-link  {{ request()->is('resume/heroProperty') ? 'active' : ''  }} " href="languages.html">Languages</a>
                  </nav>
              </div>
-
              <a class="nav-link " href="project.html">
                  <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                  Project

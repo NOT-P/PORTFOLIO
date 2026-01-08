@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\AboutController;
+use App\Http\Controllers\Backend\ResumeController;
 use App\Http\Controllers\Backend\SocialController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\HeroPropertyController;
@@ -40,10 +41,12 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/home/create',[SocialController::class,'create'])->name('social.create');
-
     Route::get('/home/edit/{id}',[SocialController::class,'edit'])->name('social.edit');
     Route::put('/home/update/{id}',[SocialController::class,'update'])->name('social.update');
     Route::delete('/home/destroy/{id}',[SocialController::class,'destroy'])->name('social.destroy');
+    #resume page
+    Route::get('/resume/download',[ResumeController::class, 'index'])->name('resumes.index');
+    Route::post('/resume/createOrUpdate',[ResumeController::class, 'store'])->name('resumes.store');
     
 
     //Route::delete('/home/destroy/{social}',[SocialController::class,'destroy'])->name('social.destroy');
@@ -65,8 +68,4 @@ Route::get('/contact',[PageController::class, 'contact'])->name('contact');
 
 // Route::get('/text', function () {
 //     return view('backend.layouts.app');
-// });
-
-// Route::get('/text', function () {
-//     return view('backend.auth.login');
 // });
